@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_todo/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -19,15 +20,32 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Recent notes', style: AppStyle.appTitleStyle),
-            AppStyle.appHeight_20,
-            // StreamBuilder<QuerySnapshot>(
-            //   builder: (context, snapshot) {},
-            // )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Recent notes', style: AppStyle.appTitleStyle),
+              AppStyle.appHeight_20,
+              StreamBuilder<QuerySnapshot>(
+                stream:
+                    FirebaseFirestore.instance.collection('notes').snapshots(),
+                builder: (context, AsyncSnapshot snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  if (snapshot.hasData) {
+                    return GridView(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2),
+                    );
+                  } else {
+                    return Text('No notes added', style: AppStyle.contentStyle);
+                  }
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

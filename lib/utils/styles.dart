@@ -33,16 +33,19 @@ class AppStyle {
     fontSize: 22.0,
     fontWeight: FontWeight.bold,
   );
+
   static TextStyle mainTitleStyle = GoogleFonts.roboto(
     color: Colors.white,
     fontSize: 18.0,
     fontWeight: FontWeight.bold,
   );
+
   static TextStyle contentStyle = GoogleFonts.nunito(
     color: Colors.white,
     fontSize: 16.0,
     fontWeight: FontWeight.normal,
   );
+  
   static TextStyle dateTitleStyle = GoogleFonts.roboto(
     color: Colors.white,
     fontSize: 14.0,
