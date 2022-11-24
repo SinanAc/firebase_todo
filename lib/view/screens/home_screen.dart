@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_todo/utils/styles.dart';
+import 'package:firebase_todo/view/widgets/note_card.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,16 +21,16 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Recent notes', style: AppStyle.appTitleStyle),
-              AppStyle.appHeight_20,
-              StreamBuilder<QuerySnapshot>(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Recent notes', style: AppStyle.appTitleStyle),
+            AppStyle.appHeight_10,
+            Expanded(
+              child: StreamBuilder<QuerySnapshot>(
                 stream:
                     FirebaseFirestore.instance.collection('notes').snapshots(),
-                builder: (context, AsyncSnapshot snapshot) {
+                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(child: CircularProgressIndicator());
                   }
@@ -37,17 +38,27 @@ class HomeScreen extends StatelessWidget {
                     return GridView(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2),
+                        crossAxisCount: 2,
+                      ),
+                      children: snapshot.data!.docs
+                          .map((note) => NoteCard(onTap: () {}, doc: note))
+                          .toList(),
                     );
                   } else {
                     return Text('No notes added', style: AppStyle.contentStyle);
                   }
                 },
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text('Add note'),
+        icon: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

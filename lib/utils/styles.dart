@@ -18,6 +18,7 @@ class AppStyle {
   ];
 
   // ===>>> HEIGHT SPACES
+  static const appHeight_5 = SizedBox(height: 5);
   static const appHeight_10 = SizedBox(height: 10);
   static const appHeight_15 = SizedBox(height: 15);
   static const appHeight_20 = SizedBox(height: 20);
@@ -35,19 +36,16 @@ class AppStyle {
   );
 
   static TextStyle mainTitleStyle = GoogleFonts.roboto(
-    color: Colors.white,
-    fontSize: 18.0,
+    fontSize: 20.0,
     fontWeight: FontWeight.bold,
   );
 
   static TextStyle contentStyle = GoogleFonts.nunito(
-    color: Colors.white,
     fontSize: 16.0,
     fontWeight: FontWeight.normal,
   );
   
   static TextStyle dateTitleStyle = GoogleFonts.roboto(
-    color: Colors.white,
     fontSize: 14.0,
     fontWeight: FontWeight.w500,
   );
