@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_todo/utils/styles.dart';
+import 'package:firebase_todo/view/screens/view_screen.dart';
 import 'package:firebase_todo/view/widgets/note_card.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,15 @@ class HomeScreen extends StatelessWidget {
                         crossAxisCount: 2,
                       ),
                       children: snapshot.data!.docs
-                          .map((note) => NoteCard(onTap: () {}, doc: note))
+                          .map((note) => NoteCard(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (ctx) => ViewScreen(doc: note),
+                                  ),
+                                );
+                              },
+                              doc: note))
                           .toList(),
                     );
                   } else {
