@@ -28,9 +28,11 @@ class ViewScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 200,
-                child: Image.asset('assets/readKoy.png'),
+              Align(
+                child: SizedBox(
+                  height: 200,
+                  child: Image.asset('assets/readKoy.png'),
+                ),
               ),
               AppStyle.appHeight_30,
               Text(

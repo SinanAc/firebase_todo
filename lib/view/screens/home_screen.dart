@@ -22,11 +22,11 @@ class HomeScreen extends StatelessWidget {
               style: AppStyle.appTitleStyle,
             ),
             AppStyle.appWidth_10,
-            SizedBox(height: 50, child: Image.asset('assets/koyKunj.png')),
+            SizedBox(height: 50, child: Image.asset('assets/eggKoyi.png')),
           ],
         ),
         centerTitle: true,
-        backgroundColor: AppStyle.appBarColor,
+        backgroundColor: AppStyle.homeColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

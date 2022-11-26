@@ -71,7 +71,7 @@ class AddScreen extends StatelessWidget {
             }
             FirebaseFirestore.instance.collection('notes').add({
               'title': _titleCotroller.text.trim(),
-              'date': '$_date ${DateTime.now().hour}:${DateTime.now().minute}',
+              'date': '$_date  ${DateTime.now().hour}:${DateTime.now().minute}',
               'content': _contentCotroller.text.trim(),
               'color_id': colorId,
             }).then((value) {
