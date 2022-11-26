@@ -31,16 +31,14 @@ class HomeScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: StreamBuilder<QuerySnapshot>(
-          stream:
-              FirebaseFirestore.instance.collection('notes').snapshots(),
+          stream: FirebaseFirestore.instance.collection('notes').snapshots(),
           builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
             }
             if (snapshot.hasData) {
               return GridView(
-                gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                 ),
                 children: snapshot.data!.docs

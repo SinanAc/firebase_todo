@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_todo/utils/styles.dart';
+import 'package:firebase_todo/view/widgets/pop_up.dart';
 import 'package:flutter/material.dart';
 
 class NoteCard extends StatelessWidget {
@@ -27,7 +28,7 @@ class NoteCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: MediaQuery.of(context).size.width/3.8,
+                  width: MediaQuery.of(context).size.width / 3.8,
                   child: Text(
                     doc['title'],
                     style: AppStyle.mainTitleStyle,
@@ -35,14 +36,13 @@ class NoteCard extends StatelessWidget {
                 ),
                 const Spacer(),
                 InkWell(
-                  onTap: ()=>_deleteVerification(context, doc),
+                  onTap: () => _deleteVerification(context, doc),
                   child: const Icon(
-                      Icons.delete,
-                      size: 22,
-                      color: AppStyle.redColor,
-                    ),
+                    Icons.delete,
+                    size: 22,
+                    color: AppStyle.redColor,
+                  ),
                 ),
-              
               ],
             ),
             Text(
@@ -72,8 +72,7 @@ Future<void> _deleteVerification(
             'Delete !!',
             style: TextStyle(color: Colors.red),
           ),
-          content: const Text(
-              'This note will be deleted permanently'),
+          content: const Text('This note will be deleted permanently'),
           actions: [
             TextButton(
               onPressed: () {
@@ -86,11 +85,13 @@ Future<void> _deleteVerification(
             ),
             TextButton(
               onPressed: () {
-               FirebaseFirestore.instance
+                FirebaseFirestore.instance
                     .collection("notes")
                     .doc(doc.id)
                     .delete();
                 Navigator.of(ctx).pop();
+                SnackBarPopUp.popUp('Successfully removed', context,
+                    bgColor: AppStyle.greenColor);
               },
               child: Text('Delete', style: AppStyle.contentStyle),
             ),

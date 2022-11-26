@@ -2,7 +2,8 @@ import 'package:firebase_todo/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class SnackBarPopUp {
-  static popUp(String messege, BuildContext context,{Color bgColor = AppStyle.redColor}) {
+  static popUp(String messege, BuildContext context,
+      {Color bgColor = AppStyle.redColor}) {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

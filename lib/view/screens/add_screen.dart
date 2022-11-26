@@ -76,6 +76,8 @@ class AddScreen extends StatelessWidget {
               'color_id': colorId,
             }).then((value) {
               Navigator.pop(context);
+              SnackBarPopUp.popUp('Note added successfully', context,
+                  bgColor: AppStyle.greenColor);
             }).catchError((_) {
               SnackBarPopUp.popUp(
                   'Something went wrong, Please try again later', context);

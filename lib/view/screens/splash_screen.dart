@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
         padding: const EdgeInsets.only(bottom: 40),
         child: Text('Notes',
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.grey.shade600,fontSize: 20)),
+            style: TextStyle(color: Colors.grey.shade600, fontSize: 20)),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

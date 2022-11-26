@@ -3,11 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppStyle {
   // ===>>> COLORS
-  static const Color bgColor = Color(0xFFe2e2ef);
-  static const Color mainColor = Color(0xFF000633);
-  static const redColor = Color(0xFFD32F2F);
-  static const appBarColor = Color(0xFF0e0e0e);
-  static const homeColor = Color(0x00000000);
+  static const Color redColor = Color(0xFFD32F2F);
+  static const Color homeColor = Color(0x00000000);
+  static final Color greenColor = Colors.green.shade800;
   static List<Color> cardColor = [
     Colors.white,
     Colors.red.shade100,
@@ -49,7 +47,7 @@ class AppStyle {
   );
 
   static TextStyle dateTitleStyle = GoogleFonts.roboto(
-    fontSize: 14.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w500,
   );
 }
