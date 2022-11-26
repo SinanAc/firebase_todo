@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>const AddScreen()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>AddScreen()));
         },
         label: const Text('Add note'),
         icon: const Icon(Icons.add),

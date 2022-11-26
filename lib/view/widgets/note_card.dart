@@ -15,7 +15,7 @@ class NoteCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(12.0),
         margin: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
             color: AppStyle.cardColor[doc['color_id']],
@@ -24,21 +24,25 @@ class NoteCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  doc['title'],
-                  style: AppStyle.mainTitleStyle,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width/3.8,
+                  child: Text(
+                    doc['title'],
+                    style: AppStyle.mainTitleStyle,
+                  ),
                 ),
                 const Spacer(),
                 InkWell(
-                    onTap: () {
-                      _deleteVerification(context, doc);
-                    },
-                    child: const Icon(
+                  onTap: ()=>_deleteVerification(context, doc),
+                  child: const Icon(
                       Icons.delete,
                       size: 22,
                       color: AppStyle.redColor,
-                    ))
+                    ),
+                ),
+              
               ],
             ),
             Text(
@@ -69,7 +73,7 @@ Future<void> _deleteVerification(
             style: TextStyle(color: Colors.red),
           ),
           content: const Text(
-              'This note will be deleted permanently. Are you sure?'),
+              'This note will be deleted permanently'),
           actions: [
             TextButton(
               onPressed: () {
