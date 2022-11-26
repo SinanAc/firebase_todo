@@ -45,10 +45,6 @@ class NoteCard extends StatelessWidget {
                 ),
               ],
             ),
-            Text(
-              doc['date'],
-              style: AppStyle.dateTitleStyle,
-            ),
             AppStyle.appHeight_5,
             Text(
               doc['content'],

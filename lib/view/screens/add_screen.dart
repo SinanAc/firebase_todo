@@ -41,7 +41,7 @@ class AddScreen extends StatelessWidget {
                   counterText: '',
                 ),
                 style: AppStyle.mainTitleStyle,
-                maxLength: 20,
+                maxLength: 15,
               ),
               AppStyle.appHeight_10,
               TextField(
@@ -61,7 +61,7 @@ class AddScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 20.0),
+        padding: const EdgeInsets.only(bottom: 5.0),
         child: FloatingActionButton.extended(
           onPressed: () async {
             if (_titleCotroller.text.isEmpty ||
