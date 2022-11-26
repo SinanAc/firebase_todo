@@ -29,7 +29,7 @@ class AddScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 200,
+                height: 200.0,
                 child: Image.asset('assets/addKoyKunj.png'),
               ),
               AppStyle.appHeight_30,
@@ -66,25 +66,46 @@ class AddScreen extends StatelessWidget {
           onPressed: () async {
             if (_titleCotroller.text.isEmpty ||
                 _contentCotroller.text.isEmpty) {
-              SnackBarPopUp.popUp('Please fill both fields', context);
+              SnackBarPopUp.popUp(
+                'Please fill both fields',
+                context,
+              );
               return;
             }
-            FirebaseFirestore.instance.collection('notes').add({
-              'title': _titleCotroller.text.trim(),
-              'date': '$_date  ${DateTime.now().hour}:${DateTime.now().minute}',
-              'content': _contentCotroller.text.trim(),
-              'color_id': colorId,
-            }).then((value) {
-              Navigator.pop(context);
-              SnackBarPopUp.popUp('Note added successfully', context,
-                  bgColor: AppStyle.greenColor);
-            }).catchError((_) {
-              SnackBarPopUp.popUp(
-                  'Something went wrong, Please try again later', context);
-            }).onError((_, __) {
-              SnackBarPopUp.popUp(
-                  'Something went wrong, Please try again later', context);
-            }).timeout(const Duration(milliseconds: 3000));
+            FirebaseFirestore.instance.collection('notes').add(
+              {
+                'title': _titleCotroller.text.trim(),
+                'date':
+                    '$_date  ${DateTime.now().hour}:${DateTime.now().minute}',
+                'content': _contentCotroller.text.trim(),
+                'color_id': colorId,
+              },
+            ).then(
+              (_) {
+                Navigator.pop(context);
+                SnackBarPopUp.popUp(
+                  'Note added successfully',
+                  context,
+                  bgColor: AppStyle.greenColor,
+                );
+              },
+            ).catchError(
+              (_) {
+                SnackBarPopUp.popUp(
+                  'Something went wrong, Please try again later',
+                  context,
+                );
+              },
+            ).onError(
+              (_, __) {
+                SnackBarPopUp.popUp(
+                  'Something went wrong, Please try again later',
+                  context,
+                );
+              },
+            ).timeout(
+              const Duration(milliseconds: 3000),
+            );
           },
           label: const Text('Submit'),
         ),

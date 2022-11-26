@@ -14,13 +14,16 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
-        ),
-      );
-    });
+    Timer(
+      const Duration(seconds: 2),
+      () {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (_) => const HomeScreen(),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -28,13 +31,21 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: AppStyle.homeColor,
       body: Center(
-        child: SizedBox(height: 200, child: Image.asset('assets/eggKoyi.png')),
+        child: SizedBox(
+          height: 200.0,
+          child: Image.asset('assets/eggKoyi.png'),
+        ),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 40),
-        child: Text('Notes',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.grey.shade600, fontSize: 20)),
+        padding: const EdgeInsets.only(bottom: 40.0),
+        child: Text(
+          'Notes',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.grey.shade600,
+            fontSize: 20.0,
+          ),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

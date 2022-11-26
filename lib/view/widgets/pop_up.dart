@@ -9,23 +9,21 @@ class SnackBarPopUp {
       SnackBar(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
-            Radius.circular(10),
+            Radius.circular(10.0),
           ),
         ),
         duration: const Duration(milliseconds: 2000),
         behavior: SnackBarBehavior.floating,
         backgroundColor: bgColor,
-        margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-        content: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 6),
-          child: Text(
-            messege,
-            style: const TextStyle(
-              letterSpacing: 1,
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
-              color: Colors.white,
-            ),
+        margin: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(vertical: 6.0),
+        content: Text(
+          messege,
+          style: const TextStyle(
+            letterSpacing: 1.0,
+            fontWeight: FontWeight.w500,
+            fontSize: 16.0,
+            color: Colors.white,
           ),
         ),
       ),

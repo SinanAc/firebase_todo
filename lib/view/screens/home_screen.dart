@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppStyle.homeColor,
       appBar: AppBar(
-        elevation: 0,
+        elevation: 0.0,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -22,7 +22,10 @@ class HomeScreen extends StatelessWidget {
               style: AppStyle.appTitleStyle,
             ),
             AppStyle.appWidth_10,
-            SizedBox(height: 50, child: Image.asset('assets/eggKoyi.png')),
+            SizedBox(
+              height: 50.0,
+              child: Image.asset('assets/eggKoyi.png'),
+            ),
           ],
         ),
         centerTitle: true,
@@ -34,7 +37,9 @@ class HomeScreen extends StatelessWidget {
           stream: FirebaseFirestore.instance.collection('notes').snapshots(),
           builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             }
             if (snapshot.hasData) {
               return GridView(
@@ -42,27 +47,35 @@ class HomeScreen extends StatelessWidget {
                   crossAxisCount: 2,
                 ),
                 children: snapshot.data!.docs
-                    .map((note) => NoteCard(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (ctx) => ViewScreen(doc: note),
-                            ),
-                          );
-                        },
-                        doc: note))
+                    .map(
+                      (note) => NoteCard(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => ViewScreen(doc: note),
+                              ),
+                            );
+                          },
+                          doc: note),
+                    )
                     .toList(),
               );
             } else {
-              return Text('No notes added', style: AppStyle.contentStyle);
+              return Text(
+                'No notes added',
+                style: AppStyle.contentStyle,
+              );
             }
           },
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (ctx) => AddScreen()));
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => AddScreen(),
+            ),
+          );
         },
         label: const Text('Add note'),
         icon: const Icon(Icons.add),

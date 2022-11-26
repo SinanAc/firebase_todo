@@ -22,15 +22,16 @@ class ViewScreen extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
-            color: AppStyle.cardColor[colorId],
-            borderRadius: BorderRadius.circular(8.0)),
+          color: AppStyle.cardColor[colorId],
+          borderRadius: BorderRadius.circular(8.0),
+        ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Align(
                 child: SizedBox(
-                  height: 200,
+                  height: 200.0,
                   child: Image.asset('assets/readKoy.png'),
                 ),
               ),

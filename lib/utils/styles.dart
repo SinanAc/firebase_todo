@@ -18,15 +18,15 @@ class AppStyle {
   ];
 
   // ===>>> HEIGHT SPACES
-  static const appHeight_5 = SizedBox(height: 5);
-  static const appHeight_10 = SizedBox(height: 10);
-  static const appHeight_20 = SizedBox(height: 20);
-  static const appHeight_30 = SizedBox(height: 30);
+  static const appHeight_5 = SizedBox(height: 5.0);
+  static const appHeight_10 = SizedBox(height: 10.0);
+  static const appHeight_20 = SizedBox(height: 20.0);
+  static const appHeight_30 = SizedBox(height: 30.0);
 
   // ===>>> WIDTH SPACES
-  static const appWidth_10 = SizedBox(width: 10);
-  static const appWidth_15 = SizedBox(width: 15);
-  static const appWidth_20 = SizedBox(width: 20);
+  static const appWidth_10 = SizedBox(width: 10.0);
+  static const appWidth_15 = SizedBox(width: 15.0);
+  static const appWidth_20 = SizedBox(width: 20.0);
 
   // ===>>> TEXT STYLES
   static TextStyle appTitleStyle = GoogleFonts.roboto(

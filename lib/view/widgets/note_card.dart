@@ -19,8 +19,9 @@ class NoteCard extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         margin: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
-            color: AppStyle.cardColor[doc['color_id']],
-            borderRadius: BorderRadius.circular(8.0)),
+          color: AppStyle.cardColor[doc['color_id']],
+          borderRadius: BorderRadius.circular(8.0),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -39,7 +40,7 @@ class NoteCard extends StatelessWidget {
                   onTap: () => _deleteVerification(context, doc),
                   child: const Icon(
                     Icons.delete,
-                    size: 22,
+                    size: 22.0,
                     color: AppStyle.redColor,
                   ),
                 ),
@@ -61,37 +62,44 @@ class NoteCard extends StatelessWidget {
 Future<void> _deleteVerification(
     BuildContext context, QueryDocumentSnapshot doc) async {
   showDialog(
-      context: context,
-      builder: (ctx) {
-        return AlertDialog(
-          title: const Text(
-            'Delete !!',
-            style: TextStyle(color: Colors.red),
+    context: context,
+    builder: (ctx) {
+      return AlertDialog(
+        title: const Text(
+          'Delete !!',
+          style: TextStyle(color: Colors.red),
+        ),
+        content: const Text('This note will be deleted permanently'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(ctx).pop();
+            },
+            child: Text(
+              'Cancel',
+              style: AppStyle.contentStyle,
+            ),
           ),
-          content: const Text('This note will be deleted permanently'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(ctx).pop();
-              },
-              child: Text(
-                'Cancel',
-                style: AppStyle.contentStyle,
-              ),
+          TextButton(
+            onPressed: () {
+              FirebaseFirestore.instance
+                  .collection("notes")
+                  .doc(doc.id)
+                  .delete();
+              Navigator.of(ctx).pop();
+              SnackBarPopUp.popUp(
+                'Successfully removed',
+                context,
+                bgColor: AppStyle.greenColor,
+              );
+            },
+            child: Text(
+              'Delete',
+              style: AppStyle.contentStyle,
             ),
-            TextButton(
-              onPressed: () {
-                FirebaseFirestore.instance
-                    .collection("notes")
-                    .doc(doc.id)
-                    .delete();
-                Navigator.of(ctx).pop();
-                SnackBarPopUp.popUp('Successfully removed', context,
-                    bgColor: AppStyle.greenColor);
-              },
-              child: Text('Delete', style: AppStyle.contentStyle),
-            ),
-          ],
-        );
-      });
+          ),
+        ],
+      );
+    },
+  );
 }
