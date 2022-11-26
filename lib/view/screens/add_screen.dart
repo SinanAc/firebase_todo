@@ -27,13 +27,18 @@ class AddScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(
+                height: 200,
+                child: Image.asset('assets/addKoyKunj.png'),
+              ),
+              AppStyle.appHeight_30,
               TextField(
                 controller: _titleCotroller,
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Title',
+                  counterText: '',
                 ),
                 style: AppStyle.mainTitleStyle,
                 maxLength: 20,
@@ -46,6 +51,7 @@ class AddScreen extends StatelessWidget {
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Content',
+                  counterText: '',
                 ),
                 style: AppStyle.contentStyle,
                 maxLength: 500,

@@ -24,20 +24,26 @@ class ViewScreen extends StatelessWidget {
         decoration: BoxDecoration(
             color: AppStyle.cardColor[colorId],
             borderRadius: BorderRadius.circular(8.0)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AppStyle.appHeight_5,
-            Text(
-              doc['date'],
-              style: AppStyle.dateTitleStyle,
-            ),
-            AppStyle.appHeight_20,
-            Text(
-              doc['content'],
-              style: AppStyle.contentStyle,
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 200,
+                child: Image.asset('assets/readKoy.png'),
+              ),
+              AppStyle.appHeight_30,
+              Text(
+                'Date, Time: ${doc['date']}',
+                style: AppStyle.dateTitleStyle,
+              ),
+              AppStyle.appHeight_10,
+              Text(
+                doc['content'],
+                style: AppStyle.contentStyle,
+              ),
+            ],
+          ),
         ),
       ),
     );

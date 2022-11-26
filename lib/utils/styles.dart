@@ -6,6 +6,8 @@ class AppStyle {
   static const Color bgColor = Color(0xFFe2e2ef);
   static const Color mainColor = Color(0xFF000633);
   static const redColor = Color(0xFFD32F2F);
+  static const appBarColor = Color(0xFF0e0e0e);
+  static const homeColor = Color(0x00000000);
   static List<Color> cardColor = [
     Colors.white,
     Colors.red.shade100,
@@ -20,8 +22,8 @@ class AppStyle {
   // ===>>> HEIGHT SPACES
   static const appHeight_5 = SizedBox(height: 5);
   static const appHeight_10 = SizedBox(height: 10);
-  static const appHeight_15 = SizedBox(height: 15);
   static const appHeight_20 = SizedBox(height: 20);
+  static const appHeight_30 = SizedBox(height: 30);
 
   // ===>>> WIDTH SPACES
   static const appWidth_10 = SizedBox(width: 10);
@@ -45,7 +47,7 @@ class AppStyle {
     fontSize: 18.0,
     fontWeight: FontWeight.normal,
   );
-  
+
   static TextStyle dateTitleStyle = GoogleFonts.roboto(
     fontSize: 14.0,
     fontWeight: FontWeight.w500,
