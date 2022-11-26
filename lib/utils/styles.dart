@@ -5,7 +5,7 @@ class AppStyle {
   // ===>>> COLORS
   static const Color bgColor = Color(0xFFe2e2ef);
   static const Color mainColor = Color(0xFF000633);
-  static const Color accentColor = Color(0xFF0065FF);
+  static const redColor = Color(0xFFD32F2F);
   static List<Color> cardColor = [
     Colors.white,
     Colors.red.shade100,
@@ -36,12 +36,13 @@ class AppStyle {
   );
 
   static TextStyle mainTitleStyle = GoogleFonts.roboto(
+    color: Colors.black,
     fontSize: 20.0,
     fontWeight: FontWeight.bold,
   );
 
   static TextStyle contentStyle = GoogleFonts.nunito(
-    fontSize: 16.0,
+    fontSize: 18.0,
     fontWeight: FontWeight.normal,
   );
   

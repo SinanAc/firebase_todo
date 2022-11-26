@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_todo/utils/styles.dart';
+import 'package:firebase_todo/view/screens/add_screen.dart';
 import 'package:firebase_todo/view/screens/view_screen.dart';
 import 'package:firebase_todo/view/widgets/note_card.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         title: Text(
           'Fire notes',
-          style: AppStyle.mainTitleStyle,
+          style: AppStyle.appTitleStyle,
         ),
         centerTitle: true,
         backgroundColor: AppStyle.mainColor,
@@ -63,7 +64,9 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>const AddScreen()));
+        },
         label: const Text('Add note'),
         icon: const Icon(Icons.add),
       ),

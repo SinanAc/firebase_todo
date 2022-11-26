@@ -23,9 +23,23 @@ class NoteCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              doc['title'],
-              style: AppStyle.mainTitleStyle,
+            Row(
+              children: [
+                Text(
+                  doc['title'],
+                  style: AppStyle.mainTitleStyle,
+                ),
+                const Spacer(),
+                InkWell(
+                    onTap: () {
+                      _deleteVerification(context, doc);
+                    },
+                    child: const Icon(
+                      Icons.delete,
+                      size: 22,
+                      color: AppStyle.redColor,
+                    ))
+              ],
             ),
             Text(
               doc['date'],
@@ -42,4 +56,41 @@ class NoteCard extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<void> _deleteVerification(
+    BuildContext context, QueryDocumentSnapshot doc) async {
+  showDialog(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          title: const Text(
+            'Delete !!',
+            style: TextStyle(color: Colors.red),
+          ),
+          content: const Text(
+              'This note will be deleted permanently. Are you sure?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(ctx).pop();
+              },
+              child: Text(
+                'Cancel',
+                style: AppStyle.contentStyle,
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+               FirebaseFirestore.instance
+                    .collection("notes")
+                    .doc(doc.id)
+                    .delete();
+                Navigator.of(ctx).pop();
+              },
+              child: Text('Delete', style: AppStyle.contentStyle),
+            ),
+          ],
+        );
+      });
 }

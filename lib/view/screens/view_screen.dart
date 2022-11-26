@@ -11,31 +11,31 @@ class ViewScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppStyle.cardColor[colorId],
       appBar: AppBar(
+        iconTheme: const IconThemeData(),
         backgroundColor: AppStyle.cardColor[colorId],
         elevation: 0.0,
+        title: Text(
+          doc['title'],
+          style: AppStyle.mainTitleStyle,
+        ),
       ),
       body: Container(
-        padding: const EdgeInsets.all(8.0),
-        margin: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
             color: AppStyle.cardColor[colorId],
             borderRadius: BorderRadius.circular(8.0)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              doc['title'],
-              style: AppStyle.mainTitleStyle,
-            ),
+            AppStyle.appHeight_5,
             Text(
               doc['date'],
               style: AppStyle.dateTitleStyle,
             ),
-            AppStyle.appHeight_5,
+            AppStyle.appHeight_20,
             Text(
               doc['content'],
               style: AppStyle.contentStyle,
-              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),
