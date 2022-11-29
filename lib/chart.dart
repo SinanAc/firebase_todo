@@ -10,8 +10,8 @@ class ChartView extends StatelessWidget {
         centerTitle: true, 
       ),
       body: Column(
-        children:[
-          
+        children:const[
+
         ]
       ),
     );
