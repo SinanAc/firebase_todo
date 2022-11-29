@@ -11,7 +11,7 @@ class ChartView extends StatelessWidget {
       ),
       body: Column(
         children:const[
-
+          
         ]
       ),
     );
