@@ -8,7 +8,12 @@ class ChartView extends StatelessWidget {
       appBar:AppBar(
         title:const Text('Chart View'),
         centerTitle: true, 
-      )
+      ),
+      body: Column(
+        children:[
+          
+        ]
+      ),
     );
   }
 }
