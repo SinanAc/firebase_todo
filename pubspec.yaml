@@ -14,15 +14,19 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^3.0.1
-  syncfusion_flutter_charts: ^20.3.59
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.11.0
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
 
-flutter:
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/eggKoyi.png"
 
+flutter:
   uses-material-design: true
   assets:
     - assets/

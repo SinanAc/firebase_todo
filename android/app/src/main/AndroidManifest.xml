@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.firebase_todo">
    <application
-        android:label="firebase_todo"
+        android:label="Kunjava notes"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
